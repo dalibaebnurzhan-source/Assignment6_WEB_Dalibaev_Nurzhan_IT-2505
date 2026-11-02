@@ -1,0 +1,297 @@
+body {
+    background-color: #555;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Йорт каркасы */
+.house-container {
+    max-width: 1250px;
+    margin: 40px auto;
+    background: #8b5a2b; /* Қоңыр қабырға түсі */
+    padding: 30px 20px 20px 20px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+/* Үшбұрышты түбә */
+.roof {
+    width: 0;
+    height: 0;
+    border-left: 645px solid transparent;
+    border-right: 645px solid transparent;
+    border-bottom: 110px solid #6b4423;
+    position: absolute;
+    top: -110px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.roof-window {
+    position: absolute;
+    top: 50px;
+    left: -15px;
+    width: 30px;
+    height: 30px;
+    background: #deb887;
+    border: 3px solid #4a3525;
+    border-radius: 50%;
+}
+
+/* Труба */
+.chimney {
+    position: absolute;
+    top: -85px;
+    right: 140px;
+    width: 45px;
+    height: 70px;
+    background: #a54632;
+    border-top: 8px solid #843725;
+}
+
+/* Тақырып */
+.house-header {
+    background: #ffffff;
+    text-align: center;
+    padding: 8px;
+    margin: 0 auto 15px auto;
+    width: 350px;
+    border-radius: 8px;
+    border: 2px solid #333;
+}
+
+.house-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #1f2937;
+}
+
+/* Батырмалар блогы */
+.controls-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#case-buttons button, #clear-btn {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    margin: 3px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+#case-buttons button:hover, #clear-btn:hover {
+    background: #f0f0f0;
+}
+
+#clear-btn {
+    background: #fee2e2;
+    border-color: #f87171;
+    font-weight: bold;
+}
+
+/* Қабаттар */
+.floor {
+    background: #fff;
+    border: 4px solid #6b4423;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    display: flex;
+    overflow: hidden;
+}
+
+.floor-label {
+    background: #4a3525;
+    color: white;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+    padding: 12px 6px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.rooms-container {
+    display: flex;
+    width: 100%;
+    background: #fdfbf7;
+    gap: 15px;
+    padding: 15px;
+}
+
+/* Бөлмелер */
+.room {
+    flex: 1;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 8px; /* Ішкі бос орынды азайтамыз */
+    background: #ffffff;
+    min-width: 0; /* Flexbox қате жұмыс істемеуі үшін */
+}
+
+.guests-container {
+    display: flex;
+    flex-wrap: nowrap; /* Карточкалар төмен түспей, бір жолға тізілуі үшін */
+    gap: 6px; /* Карточкалар арасындағы қашықтықты азайтамыз */
+    overflow-x: auto; /* Сыймай қалған жағдайда ыңғайлы жылжу үшін */
+    padding-bottom: 4px;
+}
+
+.guest-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 6px 3px; /* Карточкаішілік бос орынды тарылтамыз */
+    text-align: center;
+    width: 67px; /* Карточка енін кішкене кішірейтеміз */
+    background: #fff;
+    position: relative;
+    flex-shrink: 0; /* Карточкалар сығылып қалмауы үшін */
+}
+.avatar-wrapper {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 5px auto;
+}
+
+.avatar-wrapper img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+/* AITU студентінің кепка значогы */
+.aitu-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    font-size: 10px;
+    background: #1e3a8a;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ffffff;
+}
+.guest-name {
+    font-size: 12px;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.guest-time {
+    font-size: 10px;
+    color: #6b7280;
+    margin: 2px 0;
+}
+.icon-badge {
+    background: #f3f4f6;
+    border-radius: 4px;
+    padding: 2px 3px;
+    font-size: 9px;      /* Иконка өлшемі карточкаға сыятындай кішірейтілді */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%); /* Барлық иконкалардың сұр түсте шығуын қамтамасыз етеді */
+}
+.guest-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;          /* Иконкалар арасындағы қашықтық */
+    flex-wrap: nowrap; /* Иконкалардың келесі жолға түсуіне тыйым салады */
+    margin-top: 4px;
+}
+
+/* Фундамент және Легенда панелі */
+.foundation {
+    background: #4a3525;
+    padding: 15px 10px;
+    margin: 0 -20px -20px -20px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-top: 8px solid #32cd32; /* Шөп сызығы */
+}
+
+.legend-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 10px 15px;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-size: 13px;
+    color: #374151;
+    flex-wrap: wrap;
+    gap: 10px;
+  
+}
+
+.legend-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.color-dots {
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Модальды терезе стилі */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    min-width: 200px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px; right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.icon-badge {
+    background: #f3f4f6;
+    border-radius: 4px;
+    padding: 2px 3px;
+    font-size: 9px;      /* Иконка өлшемі карточкаға сыятындай кішірейтілді */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%); /* Барлық иконкалардың сұр түсте шығуын қамтамасыз етеді */
+}
